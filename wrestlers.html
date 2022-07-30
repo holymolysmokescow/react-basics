@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		The Wrestlers of Wrestlemania
+	</title>
+
+	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+		
+		class Wrestler extends React.Component {
+
+			render() {
+				return (
+					<div>
+						<h1> {this.props.name} </h1>
+						<h2> {this.props.title} </h2>
+					</div>
+				);
+			}
+		}
+
+		let space = document.getElementById('root');
+		let activatedSpace = ReactDOM.createRoot(space);
+
+		activatedSpace.render(
+			<div>
+				<Wrestler name="Brock Lesner" title="WWE World Heavyweight Champion" />
+				<hr />
+				<Wrestler name="John Cena" title="WWE Universal Champion" />
+				<hr />
+				<Wrestler name="Alberto Del Rio" title="WWE Intercontinental Champion" />
+				<hr />
+			</div>
+		);
+
+	</script>
+
+</body>
+</html>
