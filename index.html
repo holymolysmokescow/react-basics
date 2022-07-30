@@ -14,8 +14,10 @@
 
 	<script type="text/babel">
 
-		function MyComponent() {
-			return (<h1>This is King Kong</h1>);
+		class MyComponent extends React.Component {
+			render() {
+				return (<h1>This is King Kong</h1>);
+			}
 		}
 
 		let target = document.getElementById('root');
