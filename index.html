@@ -29,7 +29,13 @@
 		let target = document.getElementById('root');
 		let activatedTarget = ReactDOM.createRoot(target);
 
-		activatedTarget.render(<MyComponent />);
+		activatedTarget.render(
+			<div>
+				<MyComponent />
+				<MyComponent />
+				<MyComponent />
+			</div>
+		);
 
 	</script>
 
