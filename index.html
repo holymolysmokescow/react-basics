@@ -14,7 +14,10 @@
 
 	<script type="text/babel">
 
-		ReactDOM.render(<h1>This is somon</h1>, document.getElementById('root'));
+		let target = document.getElementById('root');
+		let activatedTarget = ReactDOM.createRoot(target);
+
+		activatedTarget.render(<h1>This is somon</h1>);
 
 	</script>
 
