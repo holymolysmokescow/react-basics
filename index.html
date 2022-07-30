@@ -14,10 +14,14 @@
 
 	<script type="text/babel">
 
+		function MyComponent() {
+			return (<h1>This is King Kong</h1>);
+		}
+
 		let target = document.getElementById('root');
 		let activatedTarget = ReactDOM.createRoot(target);
 
-		activatedTarget.render(<h1>This is somon</h1>);
+		activatedTarget.render(<MyComponent />);
 
 	</script>
 
