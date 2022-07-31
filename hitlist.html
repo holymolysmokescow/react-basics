@@ -82,13 +82,24 @@
 		}
 
 		class Hitlist extends React.Component {
+
+			state = {
+				names: [
+					'Hannible Lecter',
+					'Chucky',
+					'Leatherface'
+				]
+			}
+
 			render() {
 				return (
 					<div>
 						<h1>The List</h1>
-						<ListItems>Donatello</ListItems>
-						<ListItems>Michelangelo</ListItems>
-						<ListItems>Raphael </ListItems>
+						{
+							this.state.names.map((name, i) => {
+								return(<ListItems key={i}>{name}</ListItems>);
+							})
+						}
 						<button>add</button>
 					</div>
 				);
