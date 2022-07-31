@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		yoU are on the list
+	</title>
+
+	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+		
+		let space = document.getElementById('root');
+		let activatedSpace = ReactDOM.createRoot(space);
+
+		class ListItems extends React.Component {
+
+			state = {
+				editing: false,
+			}
+
+			edit = () => {
+				this.setState({editing: !this.state.editing});
+			}
+
+			save = () => {
+				this.setState({editing: !this.state.editing});	
+			}
+
+			remove() {
+
+			}
+
+			renderName() {
+				return(
+					<li>
+						<span>
+							{this.props.children}
+						</span>
+						<span style={{float: 'right'}} >
+							<button onClick={this.edit}>&#9998;</button>
+							&nbsp;&nbsp;
+							<button onClick={this.remove}>&#10008;</button>
+						</span>
+					</li>
+				);
+			}
+
+			renderEditname() {
+				return(
+					<li>
+						<span>
+							<input type="text" defaultValue={this.props.children} />
+						</span>
+						<span style={{float: 'right'}} >
+							<button onClick={this.save}>&#128190;</button>
+						</span>
+					</li>
+				);
+			}
+			render() {
+				return(
+					<address style={{width: '30%', paddingTop: 10}}>
+						<h3>
+							{
+								this.state.editing ?
+								this.renderEditname() :
+								this.renderName()
+							}
+						</h3>
+					</address>
+				);
+			}
+		}
+
+		class Hitlist extends React.Component {
+			render() {
+				return (
+					<div>
+						<h1>The List</h1>
+						<ListItems>Donatello</ListItems>
+						<ListItems>Michelangelo</ListItems>
+						<ListItems>Raphael </ListItems>
+						<button>add</button>
+					</div>
+				);
+			}
+		}
+
+		activatedSpace.render(<Hitlist />);
+	</script>
+
+</body>
+</html>
