@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Box It
+	</title>
+
+	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+		
+		class BOX extends React.Component {
+
+			jab() {
+				alert('Jabbed');
+			}
+
+			upperCut() {
+				alert('UpperCutted');
+			}
+
+			duck() {
+				alert('Ducked');
+			}
+
+			render() {
+				return (
+					<div>
+						<button onClick={this.jab}>JAB</button>
+						<button onClick={this.upperCut}>CUT</button>
+						<button onClick={this.duck}>DUCK</button>
+					</div>
+				);
+			}
+
+		}
+
+		let space = document.getElementById('root');
+		let activatedSpace = ReactDOM.createRoot(space);
+
+		activatedSpace.render(<BOX />);
+
+	</script>
+
+</body>
+</html>
