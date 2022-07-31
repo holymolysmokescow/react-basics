@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Batman VS /
+	</title>
+
+	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+		
+		let space = document.getElementById('root');
+		let activatedSpace = ReactDOM.createRoot(space);
+
+		class Batman extends React.Component {
+			constructor() {
+				super();
+				this.handleChange = this.handleChange.bind(this);
+			}
+
+			state = {
+				opponent: true,
+			}
+
+			handleChange() {
+				this.setState({opponent: !this.state.opponent});
+			}
+
+			render() {
+				let opponent;
+				this.state.opponent ?
+					opponent = 'Superman' :
+					opponent = 'Joker';
+				return (
+					<div>
+						<input type="checkbox" onChange={this.handleChange} defaultChecked={this.state.opponent}/>
+						<h2>Batman VS {opponent}</h2>
+					</div>
+				)
+			}
+		}
+
+		activatedSpace.render(<Batman />);
+
+	</script>
+
+</body>
+</html>
