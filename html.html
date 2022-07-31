@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		HTML of HTML
+	</title>
+
+	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+		
+		class BOLD extends React.Component {
+			render() {
+				return (
+					<h2><b>{this.props.children}</b></h2>
+				);
+			}
+		}
+
+		class ITALICS extends React.Component {
+			render() {
+				return (
+					<h2><em>{this.props.children}</em></h2>
+				);
+			}
+		}
+		
+		class UNDERLINED extends React.Component {
+			render() {
+				return (
+					<h2><u>{this.props.children}</u></h2>
+				);
+			}
+		}
+
+		let space = document.getElementById('root');
+		let activatedSpace = ReactDOM.createRoot(space);
+
+		activatedSpace.render(
+			<div>
+				<BOLD>This text is bold</BOLD>
+				<br />
+				<ITALICS>This text will appear slant</ITALICS>
+				<br />
+				<UNDERLINED>Whats underneath me, whoa!</UNDERLINED>
+				<br />
+			</div>
+		);
+
+	</script>
+
+</body>
+</html>
